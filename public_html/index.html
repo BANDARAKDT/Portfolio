@@ -63,7 +63,7 @@
   
     .nav-link-custom:hover {
       background-color: rgba(255, 255, 255, 0.2);
-      color: #1926d4 !important;
+      color: #ffffff !important;
     }
   
     .navbar-toggler {
@@ -104,7 +104,7 @@
                 </div>
             </div>              
             <div class="img-holder">
-                <img src="assets/imgs/profile 3.png" alt="">
+                <img src="assets/imgs/profile 3.png" alt="" >
             </div>      
         </div>  
 
@@ -161,7 +161,6 @@
 <div class="widget">
     <div class="welcome-text">
         <h1>Welcome to my profile</h1>
-        <p>Your gateway to my projects, skills, and experiences</p>
     </div>
 </div>
 </header>
@@ -172,37 +171,74 @@
 
 
     
-   <!-- About Section -->
-<section id="about" class="py-5 bg-dark">
-    <div class="container mt-5">
-      <div class="row align-items-center shadow-lg p-4 rounded-4 bg-white">
-        <div class="col-md-4 text-center">
-          <img src="assets/imgs/SC.jpg" alt="Profile Picture" class="img-fluid rounded-circle border border-3 border-warning mb-3" style="width: 200px; height: 200px; object-fit: cover;">
-          <h5 class="fw-bold text-primary mt-2">Deshani Bandara</h5>
-          <p class="text-muted mb-0">Undergraduate | BICT (Hons)</p>
-        </div>
-        <div class="col-md-8 mt-4 mt-md-0">
-          <h4 class="text-dark fw-semibold mb-3">About Me</h4>
-          <p class="text-muted" style="line-height: 1.7;">
-            Hi, I’m <strong>Deshani Bandara</strong>, a final-year ICT undergraduate at the University of Ruhuna with a strong passion for solving problems through technology.
-            I specialize in mobile app design with <strong>Flutter</strong>, <strong>Business Analysis</strong>, <strong>Project Management</strong>, <strong>Quality Assurance</strong>, and creating user-friendly digital experiences.<br><br>
-  
-            I’ve worked on a variety of projects, including leading programming (Python, Pascal) workshops for school students. My research on AI-driven fruit ripeness detection using machine learning blends innovation with real-world impact.<br><br>
-  
-            Outside of tech, I’m a university-level carrom player and love participating in leadership activities. I’m always eager to contribute and grow.<br><br>
-  
-            <span class="fw-bold text-primary">I’m currently open to internship or job opportunities</span> where I can apply my skills, grow professionally, and be part of something inspiring.
-          </p>
-          <!-- <a href="#" class="btn btn-warning rounded-pill px-4 mt-3">Download CV</a> -->
-        </div>
+  <!-- About Section -->
+<section id="about" class="py-5 bg-dark text-white">
+  <div class="container mt-5">
+    <div class="row align-items-center shadow-lg p-4 rounded-4 bg-secondary">
+      <div class="col-md-4 text-center">
+        <img src="assets/imgs/SC.jpg" alt="Profile Picture" 
+             class="img-fluid rounded-circle border border-3 border-warning mb-3 profile-img"
+             style="width: 200px; height: 200px; object-fit: cover; transition: transform 0.5s ease, box-shadow 0.5s ease;">
+        <h5 class="fw-bold text-warning mt-2">Deshani Bandara</h5>
+        <p class="text-light mb-0">Undergraduate | BICT (Hons)</p>
+      </div>
+      <div class="col-md-8 mt-4 mt-md-0">
+        <h4 class="fw-semibold mb-3">About Me</h4>
+        <p style="line-height: 1.7;">
+          Hi, I’m <strong>Deshani Bandara</strong>, a final-year ICT undergraduate at the University of Ruhuna with a strong passion for solving problems through technology.
+          I specialize in mobile app design with <strong>Flutter</strong>, <strong>Business Analysis</strong>, <strong>Project Management</strong>, <strong>Quality Assurance</strong>, and creating user-friendly digital experiences.<br><br>
+
+          I’ve worked on a variety of projects, including leading programming (Python, Pascal) workshops for school students. My research on AI-driven fruit ripeness detection using machine learning blends innovation with real-world impact.<br><br>
+
+          Outside of tech, I’m a university-level carrom player and love participating in leadership activities. I’m always eager to contribute and grow.<br><br>
+
+          <span class="fw-bold text-warning">I’m currently open to internship or job opportunities</span> where I can apply my skills, grow professionally, and be part of something inspiring.
+        </p>
       </div>
     </div>
+  </div>
 
-    <style>.bg-light {
-        background-color: #f8f9fa !important;
-      }
-      </style>
-  </section>
+  <style>
+    /* Background for inner container to be slightly lighter but dark */
+    .bg-secondary {
+      background-color: #2c2f33 !important;
+    }
+
+    /* Text colors */
+    p, h4 {
+      color: #eee !important;
+    }
+
+    /* Dynamic image effect class */
+    .profile-img.active {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px 5px #ff8b07;
+      border-color:  #ff8b07 !important;
+    }
+  </style>
+
+  <script>
+    // Wait for the DOM to load
+    document.addEventListener('DOMContentLoaded', () => {
+      const aboutSection = document.getElementById('about');
+      const profileImg = aboutSection.querySelector('.profile-img');
+
+      // Intersection Observer to detect when About section is in viewport
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            profileImg.classList.add('active');
+          } else {
+            profileImg.classList.remove('active');
+          }
+        });
+      }, { threshold: 0.5 }); // Trigger when 50% of the section is visible
+
+      observer.observe(aboutSection);
+    });
+  </script>
+</section>
+
   
 
 <!-- Education Section -->
@@ -211,7 +247,7 @@
       <h6 class="subtitle"></h6>
       <h6 class="section-title mb-4 text-uppercase text-white">Educational Background</h6>
 
-      <p class="mb-5 pb-4 px-md-5">
+      <p class="mb-5 pb-4 px-md-5 text-muted">
         I hold a BICT (Hons) Degree from the University of Ruhuna with a GPA of 3.5, building a strong foundation in information and communication technology. My academic journey began at Gankanda Central College, where I excelled in both GCE A/L and O/L examinations in the Engineering Technology stream.
       </p>
   
@@ -260,179 +296,191 @@
   
 
 <!-- Paste this style in your CSS or inside <style> tags -->
-<style>
+  <style>
     .fancy-card {
         background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
         border-radius: 15px;
         transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         border: 1px solid #dee2e6;
     }
-
+  
     .fancy-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 12px 24px rgba(0,0,0,0.15);
         background: linear-gradient(to bottom right, #e0f7fa, #f1f8e9);
     }
-
+  
     .card-icon i {
         animation: bounce 2s infinite;
     }
-
+  
     @keyframes bounce {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-5px); }
     }
-
+  
     .card-title {
         color: #343a40;
         transition: color 0.3s ease;
     }
-
+  
     .fancy-card:hover .card-title {
         color: #007bff;
     }
-
+  
     .list-unstyled li {
         margin-bottom: 4px;
     }
+  
+    /* Glass card style with orange glow on hover */
     .glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #fff;
-}
-
-.glass-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-</style>
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        color: #fff;
+    }
+  
+    .glass-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 25px 5px rgba(255, 165, 0, 0.6); /* Orange glow */
+        border-color: rgba(255, 165, 0, 0.6); /* Optional: orange border */
+    }
+  </style>
+  
 
 <!-- Skills & Expertise Section -->
 <section id="Skills" class="section py-5 bg-dark">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title text-uppercase fw-bolder">Skills & Expertise</h2>
-        <p class="text-muted">
-          Expanding my knowledge and skill set through self-directed learning and courses beyond my degree program to excel in project development.
-        </p>
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title text-uppercase fw-bolder text-white">Skills & Expertise</h2>
+      <p class="text-muted">
+        Expanding my knowledge and skill set through self-directed learning and courses beyond my degree program to excel in project development.
+      </p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <!-- Skill Card: Programming Languages -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card glass-card text-center p-4">
+          <div class="card-icon mb-3">
+            <i class="fas fa-code fa-3x text-primary"></i>
+          </div>
+          <h5 class="card-title fw-bold mb-3 text-white">Programming Languages</h5>
+          <ul class="list-unstyled small text-muted">
+            <li>HTML, CSS, JavaScript, Dart</li>
+            <li>PHP, jQuery, Python, C, Java</li>
+            <li>MySQL</li>
+          </ul>
+        </div>
       </div>
-      <div class="row g-4 justify-content-center">
-        <!-- Skill Card: Programming Languages -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card fancy-card text-center p-4">
-            <div class="card-icon mb-3">
-              <i class="fas fa-code fa-3x text-primary"></i>
-            </div>
-            <h5 class="card-title fw-bold mb-3">Programming Languages</h5>
-            <ul class="list-unstyled small text-muted">
-              <li>HTML, CSS, JavaScript, Dart</li>
-              <li>PHP, jQuery, Python, C, Java</li>
-              <li>MySQL</li>
-            </ul>
+
+      <!-- Skill Card: Development Tools -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card glass-card text-center p-4">
+          <div class="card-icon mb-3">
+            <i class="fas fa-tools fa-3x text-success"></i>
           </div>
+          <h5 class="card-title fw-bold mb-3 text-white">Development Tools</h5>
+          <ul class="list-unstyled small text-muted">
+            <li>GIT, GitHub, IntelliJ IDEA, VS Code</li>
+            <li>Flutter, Spring Boot, Java Swing</li>
+            <li>JIRA, Packet Tracer, Figma, Canva</li>
+          </ul>
         </div>
-  
-        <!-- Skill Card: Development Tools -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card fancy-card text-center p-4">
-            <div class="card-icon mb-3">
-              <i class="fas fa-tools fa-3x text-success"></i>
-            </div>
-            <h5 class="card-title fw-bold mb-3">Development Tools</h5>
-            <ul class="list-unstyled small text-muted">
-              <li>GIT, GitHub, IntelliJ IDEA, VS Code</li>
-              <li>Flutter, Spring Boot, Java Swing</li>
-              <li>JIRA, Packet Tracer, Figma, Canva</li>
-            </ul>
+      </div>
+
+      <!-- Skill Card: Professional Skills -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card glass-card text-center p-4">
+          <div class="card-icon mb-3">
+            <i class="fas fa-user-check fa-3x text-warning"></i>
           </div>
+          <h5 class="card-title fw-bold mb-3 text-white">Professional Skills</h5>
+          <ul class="list-unstyled small text-muted">
+            <li>Problem-Solving &amp; Analytical Thinking</li>
+            <li>Effective Communication &amp; Teamwork</li>
+            <li>Leadership, Time Management</li>
+          </ul>
         </div>
-  
-        <!-- Skill Card: Professional Skills -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card fancy-card text-center p-4">
-            <div class="card-icon mb-3">
-              <i class="fas fa-user-check fa-3x text-warning"></i>
-            </div>
-            <h5 class="card-title fw-bold mb-3">Professional Skills</h5>
-            <ul class="list-unstyled small text-muted">
-              <li>Problem-Solving &amp; Analytical Thinking</li>
-              <li>Effective Communication &amp; Teamwork</li>
-              <li>Leadership, Time Management</li>
-            </ul>
+      </div>
+
+      <!-- Skill Card: Language Skills -->
+      <div class="col-md-6 col-lg-3">
+        <div class="card glass-card text-center p-4">
+          <div class="card-icon mb-3">
+            <i class="fas fa-language fa-3x text-info"></i>
           </div>
-        </div>
-  
-        <!-- Skill Card: Language Skills -->
-        <div class="col-md-6 col-lg-3">
-          <div class="card fancy-card text-center p-4">
-            <div class="card-icon mb-3">
-              <i class="fas fa-language fa-3x text-info"></i>
-            </div>
-            <h5 class="card-title fw-bold mb-3">Language Skills</h5>
-            <ul class="list-unstyled small text-muted">
-              <li>Sinhala - Native Speaker</li>
-              <li>English - Professional Fluency</li>
-              <li>Tamil - Basic Understanding</li>
-            </ul>
-          </div>
+          <h5 class="card-title fw-bold mb-3 text-white">Language Skills</h5>
+          <ul class="list-unstyled small text-muted">
+            <li>Sinhala - Native Speaker</li>
+            <li>English - Professional Fluency</li>
+            <li>Tamil - Basic Understanding</li>
+          </ul>
         </div>
       </div>
     </div>
-  
-    <!-- CSS Enhancements -->
-    <style>
-      .fancy-card {
-        background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
-        border-radius: 15px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-        border: 1px solid #dee2e6;
+  </div>
+
+  <!-- Unified Glass Card Style -->
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px 5px rgba(255, 165, 0, 0.7); /* Orange glow */
+      border: 2px solid #ffa726;
+    }
+
+    .card-icon i {
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
       }
-  
-      .fancy-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-        background: linear-gradient(to bottom right, #e0f7fa, #f1f8e9);
+      50% {
+        transform: translateY(-5px);
       }
-  
-      .card-icon i {
-        animation: bounce 2s infinite;
-      }
-  
-      @keyframes bounce {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-5px);
-        }
-      }
-  
-      .card-title {
-        color: #343a40;
-      }
-  
-      .fancy-card:hover .card-title {
-        color: #007bff;
-      }
-  
-      .list-unstyled li {
-        margin-bottom: 4px;
-      }
-    </style>
-  </section>
+    }
+
+    .card-title {
+      color: #ffffff;
+      transition: color 0.3s ease;
+    }
+
+    .glass-card:hover .card-title {
+      color: #ffa726;
+    }
+
+    .list-unstyled li {
+      margin-bottom: 4px;
+      color: #ccc;
+    }
+
+    .glass-card:hover .card-icon i {
+      color: #ffa726 !important;
+    }
+  </style>
+</section>
+
   
   <!-- Skills Logos Marquee Section -->
   <section id="skills-logos" class="py-4 bg-dark">
     <div class="container">
       <div class="text-center mb-3">
-        <h6 class="subtitle text-primary fw-bold mb-2">Technologies &amp; Tools</h6>
-        <h2 class="section-title text-uppercase fw-bolder">Technologies I Use</h2>
+        <!-- <h6 class="subtitle text-primary fw-bold mb-2">Technologies &amp; Tools</h6> -->
+        <h2 class="section-title text-uppercase fw-bolder text-white">Tools & Technologies</h2>
       </div>
       <div class="marquee">
         <div class="marquee-content d-flex align-items-center">
@@ -513,7 +561,7 @@
 <section id="portfolio" class="section">
     <div class="container text-center">
         <h6 class="section-title mb-4 text-uppercase text-white">CERTIFICATIONS & COURSES</h6>
-        <p class="mb-5 pb-4">
+        <p class="mb-5 pb-4 text-muted">
             These are the certifications and courses I have completed to enhance my skills in various areas of IT, software development, and other fields of interest. Each course has played a key role in building my expertise for the projects I undertake.
         </p>
 
@@ -562,6 +610,17 @@
                     </div>
                 </div>                  
             </div>
+            <div class="col-sm-6 col-md-4 mb-4">
+              <div class="img-wrapper">
+                  <img src="assets/imgs/folio-5.jpg" alt="Introduction to Containerization" class="img-fluid">
+                  <div class="overlay">
+                      <div class="overlay-infos">
+                          <h5>Introduction to Containerization</h5>
+                          <a href="https://www.linkedin.com/posts/deshanibandara_containerization-docker-devops-activity-7330664568693673984-zE61?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" target="_blank"><i class="ti-link"></i></a>
+                      </div>                              
+                  </div>
+              </div>                  
+          </div>
         </div>
     </div>
 </section>
@@ -643,88 +702,79 @@
 
 <!-- Projects Section -->
 <section id="projects" class="section">
-    <div class="container text-center">
-        <!-- <h6 class="subtitle text-primary">Projects</h6> -->
-        <h6 class="section-title mb-4 text-uppercase text-white">Projects</h6>
-        <p class="mb-5 pb-4">
-            Here are a few personal and academic projects I have completed, showcasing my skills and experience across various technologies and domains.
-        </p>
+  <div class="container text-center">
+      <h6 class="section-title mb-4 text-uppercase text-white">Projects</h6>
+      <p class="mb-5 pb-4 text-muted">
+          Here are a few personal and academic projects I have completed, showcasing my skills and experience across various technologies and domains.
+      </p>
 
-        <div class="row">
-            <!-- Project 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card project-card h-100 border">
-                    <img src="assets/imgs/JMS.png" class="card-img-top" alt="Project 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Job Management System</h5>
-                        <p class="card-text">
-                            A complete mobile and web-based solution for managing job seekers and job providers, designed for the Department of Manpower and Employment.
-                        </p>
-                        <p><strong>Tools:</strong> Flutter, Firebase, Firestore, Firebase Storage, Dart</p>
-                        <div class="mt-3">
-                            <a href="https://www.linkedin.com/posts/deshanibandara_softwareengineering-flutter-firebase-activity-7304060510201618432-teDb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" target="_blank" class="btn btn-outline-primary btn-sm me-2">
-                                <i class="ti-linkedin"></i> LinkedIn
-                            </a>
-                            <a href="https://github.com/yourusername/job-management-system" target="_blank" class="btn btn-outline-dark btn-sm">
-                                <i class="ti-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="row">
+          <!-- Project 1 -->
+          <div class="col-md-4 mb-4">
+              <div class="card project-card h-100 border">
+                  <img src="assets/imgs/JMS.png" class="card-img-top" alt="Project 1">
+                  <div class="card-body">
+                      <h5 class="card-title">Job Management System</h5>
+                      <p class="card-text">
+                          A complete mobile and web-based solution for managing job seekers and job providers, designed for the Department of Manpower and Employment.
+                      </p>
+                      <p><strong>Tools:</strong> Flutter, Firebase, Firestore, Firebase Storage, Dart</p>
+                      <div class="mt-3">
+                          <a href="https://www.linkedin.com/posts/deshanibandara_softwareengineering-flutter-firebase-activity-7304060510201618432-teDb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" target="_blank" class="btn btn-outline-primary btn-sm me-2">
+                              <i class="ti-linkedin"></i> LinkedIn
+                          </a>
+                          <a href="https://github.com/yourusername/job-management-system" target="_blank" class="btn btn-outline-light btn-sm">
+                              <i class="ti-github"></i> GitHub
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
-            <!-- Project 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card project-card h-100 border">
-                    <img src="assets/imgs/Tution master.jpeg" class="card-img-top" alt="Project 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Tution Master App UI Design</h5>
-                        <p class="card-text">
-                            a revolutionary mobile app designed to simplify the management of tuition classes for busy undergraduate students like me. 🎓 Leveraging HCI principles, this app streamlines administrative tasks such as scheduling, attendance tracking, and fee management, ensuring an intuitive user experience.  </p>
-                        <p><strong>Tools:</strong> Figma with HCI principles</p>
-                        <div class="mt-3">
-                            <a href="https://www.figma.com/design/155Fc00Tj4RdkReChCi0VN/HCI?node-id=23-52&p=f&t=L60GDSvMLvwPabh8-0" target="_blank" class="btn btn-outline-primary btn-sm me-2">
-                                <i class="ti-figma"></i> Figma
-                            </a>
-                           
-                            <a href="https://www.linkedin.com/posts/deshanibandara_tuitionmaster-hci-undergraduatelife-activity-7181327704414203904-ZNjH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" target="_blank" class="btn btn-outline-primary btn-sm me-2">
-                                <i class="ti-linkedin"></i> LinkedIn
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <!-- Project 2 -->
+          <div class="col-md-4 mb-4">
+              <div class="card project-card h-100 border">
+                  <img src="assets/imgs/Tution master.jpeg" class="card-img-top" alt="Project 2">
+                  <div class="card-body">
+                      <h5 class="card-title">Tution Master App UI Design</h5>
+                      <p class="card-text">
+                          A revolutionary mobile app to simplify managing tuition classes for undergraduates, using HCI principles for a smooth experience.
+                      </p>
+                      <p><strong>Tools:</strong> Figma with HCI principles</p>
+                      <div class="mt-3">
+                          <a href="https://www.figma.com/design/155Fc00Tj4RdkReChCi0VN/HCI?node-id=23-52&p=f&t=L60GDSvMLvwPabh8-0" target="_blank" class="btn btn-outline-primary btn-sm me-2">
+                              <i class="ti-figma"></i> Figma
+                          </a>
+                          <a href="https://www.linkedin.com/posts/deshanibandara_tuitionmaster-hci-undergraduatelife-activity-7181327704414203904-ZNjH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" target="_blank" class="btn btn-outline-primary btn-sm me-2">
+                              <i class="ti-linkedin"></i> LinkedIn
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
-            <!-- Project 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card project-card h-100 border">
-                    <embed src="assets/imgs/php.mp4" class="card-img-top" alt="Tuition Master Project">
-                    <div class="card-body">
-                        <h5 class="card-title">FaBric - ECommerce Web Application</h5>
-                        <p class="card-text">
-                            The Fabric Commercial Website is a fully custom-built home page for a clothing business, developed without using any pre-made templates. This project reflects a strong understanding of front-end and back-end integration in a commercial context </p>
-                       
-                        <p><strong>Tools:</strong>  HTML,CSS,PHP,JavaScript,jQuery </p>
-                        <div class="mt-3">
-                            <a href="https://www.linkedin.com/posts/deshanibandara_javascript-html-css-activity-7049062736462295040-cks-?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" target="_blank" class="btn btn-outline-primary btn-sm">
-                                <i class="ti-linkedin"></i> LinkedIn
-                            </a>
-                            <a href="https://lnkd.in/gVKwTUzP " target="_blank" class="btn btn-outline-dark btn-sm me-2">
-                                <i class="ti-github"></i> GitHub
-                            </a>
-                           
-                        
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-            
-            
-        </div>
+          <!-- Project 3 -->
+          <div class="col-md-4 mb-4">
+              <div class="card project-card h-100 border">
+                  <embed src="assets/imgs/php.mp4" class="card-img-top" alt="Tuition Master Project">
+                  <div class="card-body">
+                      <h5 class="card-title">FaBric - ECommerce Web Application</h5>
+                      <p class="card-text">
+                          A commercial clothing store homepage built from scratch to demonstrate full front-end and back-end integration skills.
+                      </p>
+                      <p><strong>Tools:</strong> HTML, CSS, PHP, JavaScript, jQuery</p>
+                      <div class="mt-3">
+                          <a href="https://www.linkedin.com/posts/deshanibandara_javascript-html-css-activity-7049062736462295040-cks-?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" target="_blank" class="btn btn-outline-primary btn-sm">
+                              <i class="ti-linkedin"></i> LinkedIn
+                          </a>
+                          <a href="https://lnkd.in/gVKwTUzP" target="_blank" class="btn btn-outline-light btn-sm me-2">
+                              <i class="ti-github"></i> GitHub
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
 
         <div class="row">
             <!-- Project 4 -->
@@ -799,147 +849,182 @@
 
     </div>
 
-    <style>.project-card {
-        color: black !important;
+    <style>
+      .project-card {
+          background-color: #1f1f1f;
+          color: white !important;
+          transition: all 0.3s ease-in-out;
       }
-      </style>
+
+      .project-card:hover {
+          box-shadow: 0 0 20px 5px #ffa726;
+          transform: scale(1.02);
+      }
+
+      .project-card .card-title,
+      .project-card .card-text,
+      .project-card p,
+      .project-card strong {
+          color: white !important;
+      }
+
+      .project-card .btn-outline-dark {
+          border-color: white;
+          color: white;
+      }
+
+      .project-card .btn-outline-dark:hover {
+          background-color: white;
+          color: black;
+      }
+  </style>
 </section>
-<!-- End of Projects Section -->
+
+
+
+
+
 
 <!-- Hons & Awards Section -->
 <section id="Awards" class="section py-5 bg-dark">
-    <div class="container text-center text-white">
-      <h2 class="section-title mb-4 font-weight-bold text-white">Hons and Awards</h2>
-      <p class="mb-5 pb-4 text-white">
-        Throughout my journey, I have been honored to receive several recognitions that reflect my dedication, hard work, and passion. These awards and achievements motivate me to continuously strive for excellence and contribute meaningfully in every endeavor I undertake.
-      </p>
-  
-      <!-- Horizontal Scroll Container -->
-      <div class="d-flex overflow-auto pb-3" style="gap: 1rem;">
-        <!-- Slide 1 -->
-        <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
-          <div class="card-body p-4">
-            <img src="assets/imgs/award1.jpeg" alt="Best Carrom Player 2022 Award" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
-            <p class="mb-4 text-secondary small text-light" style="line-height: 1.4;">
-              🏆 Inter-University Sports Meet – 2022 <br>
-              I took part in the Carrom Tournament during the Inter-University Sports Meet 2022, held at Sports Federation, Colombo organized by Gampaha Wickramarachchi University. Representing my university, I successfully won all my singles matches. The event provided an excellent opportunity to demonstrate my competitive spirit and dedication to the sport.
-            </p>
-            <h5 class="title font-weight-bold mb-1 text-light" style="background-color: rgb(236, 145, 34); display: inline-block; padding: 4px 8px; border-radius: 4px;">
-              Best Carrom Player - 2022
-            </h5>
-            <h6 class="subtitle text-muted">University of Ruhuna</h6>
-          </div>
-        </div>
-  
-        <!-- Slide 2 -->
-        <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
-          <div class="card-body p-4">
-            <img src="assets/imgs/award 2.jpg" alt="Best Carrom Player 2023 Award" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
-            <p class="mb-4 text-secondary small text-light" style="line-height: 1.4;">
-              🏆 SLUG 2023 – Sri Lankan University Games<br>
-              I participated in the Carrom Tournament at the Sri Lankan University Games 2023, held at the University of Colombo. Representing my university, I competed in the Inter-University Carrom Tournament and progressed to the quarterfinals after winning all my singles matches as the Vice Captain of the carrom team. It was a valuable experience and an opportunity to engage with players from other universities.
-            </p>
-            <h5 class="title font-weight-bold mb-1 text-black" style="background-color: rgb(236, 145, 34); display: inline-block; padding: 4px 8px; border-radius: 4px;">
-              Best Carrom Player - 2023
-            </h5>
-            <h6 class="subtitle text-muted">University of Ruhuna</h6>
-          </div>
-        </div>
-  
-        <!-- Slide 3 -->
-        <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
-          <div class="card-body p-4">
-            <img src="assets/imgs/award 4.jpg" alt="Best Student of the Year 2019" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
-            <p class="mb-4 text-secondary small text-light">
-              🌟 Best Student of the Year – 2019 <br>
-              I was honored to be named Best Student of the Year at Gankanda Central College in 2019. This recognition reflected my academic excellence, leadership qualities, and active participation in extracurricular activities. It was a proud moment in my educational journey, showcasing my commitment to both personal growth and community contribution.
-            </p>
-            <h5 class="title font-weight-bold mb-1 text-black" style="background-color: rgb(236, 145, 34); display: inline-block; padding: 4px 8px; border-radius: 4px;">
-              Best Student of the year - 2019
-            </h5>
-            <h6 class="subtitle text-muted">Gankanda Central College, Rathnapura</h6>
-          </div>
-        </div>
-  
-        <!-- Slide 4 -->
-        <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
-          <div class="card-body p-4">
-            <img src="assets/imgs/award 5.jpg" alt="Inter Faculty Meet 2022 Runners-Up" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
-            <p class="mb-4 text-secondary small text-light">🌟 Inter Faculty Meet 2022 - Runners-Up</p>
-            <h5 class="title font-weight-bold mb-1 text-black" style="background-color: rgb(236, 145, 34); display: inline-block; padding: 4px 8px; border-radius: 4px;">Women’s Carrom Team</h5>
-            <h6 class="subtitle text-muted">Faculty of Technology, University of Ruhuna</h6>
-          </div>
-        </div>
-  
-        <!-- Slide 5 -->
-        <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
-          <div class="card-body p-4">
-            <img src="assets/imgs/award 7.jpeg" alt="SLUG 2023 Felicitation Ceremony" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
-            <p class="mb-4 text-secondary small text-light">
-              🌟 SLUG 2023 <br>
-              Proudly representing the Faculty of Technology, University of Ruhuna, as the Vice Captain of university carrom team in this prestigious tournament held once every 3 years.
-            </p>
-            <h5 class="title font-weight-bold mb-1 text-black" style="background-color: rgb(236, 145, 34); display: inline-block; padding: 4px 8px; border-radius: 4px;">Felicitation Ceremony</h5>
-            <h6 class="subtitle text-muted">University of Ruhuna</h6>
-          </div>
-        </div>
-  
-        <!-- Slide 6 -->
-        <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
-          <div class="card-body p-4">
-            <img src="assets/imgs/award 6.jpg" alt="Award Ceremony 2024" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
-            <p class="mb-4 text-secondary small text-light">
-              🌟 Award Ceremony 2024 <br>
-              An award ceremony organized by the Faculty of Technology, University of Ruhuna, to honor 2024 University Colors Holders, Games Pool players, and Sports Captains. The event celebrated athletic excellence, leadership, and contributions to the university’s sports culture.
-            </p>
-            <h5 class="title font-weight-bold mb-1 text-black" style="background-color: rgb(236, 145, 34); display: inline-block; padding: 4px 8px; border-radius: 4px;">Felicitation Ceremony</h5>
-            <h6 class="subtitle text-muted">University of Ruhuna</h6>
-          </div>
-        </div>
-  
-        <!-- Slide 7 -->
-        <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
-          <div class="card-body p-4">
-            <img src="assets/imgs/award 8.jpg" alt="Inter Batch Meet 2024 Winners" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
-            <p class="mb-4 text-secondary small text-light">
-              🌟 Inter Batch Meet - 2024 <br>
-            </p>
-            <h5 class="title font-weight-bold mb-1 text-black" 
-            style="background-color: rgb(236, 145, 34); 
-                   display: inline-block; 
-                   padding: 4px 8px; 
-                   border-radius: 4px; 
-                   font: size 5px;">
-          Women’s Carrom Team - Winners
-        </h5>
-         <h6 class="subtitle text-muted">Faculty of Technology, University of Ruhuna</h6>
-          </div>
+  <div class="container text-center text-white">
+    <h2 class="section-title mb-4 font-weight-bold text-white">Hons and Awards</h2>
+    <p class="mb-5 pb-4 text-muted">
+      Throughout my journey, I have been honored to receive several recognitions that reflect my dedication, hard work, and passion. These awards and achievements motivate me to continuously strive for excellence and contribute meaningfully in every endeavor I undertake.
+    </p>
+
+    <!-- Horizontal Scroll Container -->
+    <div id="awardScrollContainer" class="d-flex overflow-auto pb-3" style="gap: 1rem;">
+      <!-- Slide 1 -->
+      <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
+        <div class="card-body p-4">
+          <img src="assets/imgs/award1.jpeg" alt="Best Carrom Player 2022 Award" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
+          <p class="mb-4 text-secondary small text-light" style="line-height: 1.4;">
+            🏆 Inter-University Sports Meet – 2022 <br>
+            I took part in the Carrom Tournament during the Inter-University Sports Meet 2022, held at Sports Federation, Colombo organized by Gampaha Wickramarachchi University. Representing my university, I successfully won all my singles matches. The event provided an excellent opportunity to demonstrate my competitive spirit and dedication to the sport.
+          </p>
+          <h5 class="title font-weight-bold mb-1 text-light" style="background-color: rgb(236, 145, 34); display: inline-block; padding: 4px 8px; border-radius: 4px;">
+            Best Carrom Player - 2022
+          </h5>
+          <h6 class="subtitle text-muted">University of Ruhuna</h6>
         </div>
       </div>
-  
+
+      <!-- Slide 2 -->
+      <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
+        <div class="card-body p-4">
+          <img src="assets/imgs/award 2.jpg" alt="Best Carrom Player 2023 Award" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
+          <p class="mb-4 text-secondary small text-light" style="line-height: 1.4;">
+            🏆 SLUG 2023 – Sri Lankan University Games<br>
+            I participated in the Carrom Tournament at the Sri Lankan University Games 2023, held at the University of Colombo. Representing my university, I competed in the Inter-University Carrom Tournament and progressed to the quarterfinals after winning all my singles matches as the Vice Captain of the carrom team. It was a valuable experience and an opportunity to engage with players from other universities.
+          </p>
+          <h5 class="title font-weight-bold mb-1 text-black" style="background-color: rgb(236, 145, 34); display: inline-block; padding: 4px 8px; border-radius: 4px;">
+            Best Carrom Player - 2023
+          </h5>
+          <h6 class="subtitle text-muted">University of Ruhuna</h6>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
+        <div class="card-body p-4">
+          <img src="assets/imgs/award 4.jpg" alt="Best Student of the Year 2019" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
+          <p class="mb-4 text-secondary small text-light">
+            🌟 Best Student of the Year – 2019 <br>
+            I was honored to be named Best Student of the Year at Gankanda Central College in 2019. This recognition reflected my academic excellence, leadership qualities, and active participation in extracurricular activities. It was a proud moment in my educational journey, showcasing my commitment to both personal growth and community contribution.
+          </p>
+          <h5 class="title font-weight-bold mb-1 text-black" style="background-color: rgb(236, 145, 34); display: inline-block; padding: 4px 8px; border-radius: 4px;">
+            Best Student of the year - 2019
+          </h5>
+          <h6 class="subtitle text-muted">Gankanda Central College, Rathnapura</h6>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
+        <div class="card-body p-4">
+          <img src="assets/imgs/award 5.jpg" alt="Inter Faculty Meet 2022 Runners-Up" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
+          <p class="mb-4 text-secondary small text-light">🌟 Inter Faculty Meet 2022 - Runners-Up</p>
+          <h5 class="title font-weight-bold mb-1 text-black" style="background-color: rgb(236, 145, 34); display: inline-block; padding: 4px 8px; border-radius: 4px;">Women’s Carrom Team</h5>
+          <h6 class="subtitle text-muted">Faculty of Technology, University of Ruhuna</h6>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
+        <div class="card-body p-4">
+          <img src="assets/imgs/award 7.jpeg" alt="SLUG 2023 Felicitation Ceremony" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
+          <p class="mb-4 text-secondary small text-light">
+            🌟 SLUG 2023 <br>
+            Proudly representing the Faculty of Technology, University of Ruhuna, as the Vice Captain of university carrom team in this prestigious tournament held once every 3 years.
+          </p>
+          <h5 class="title font-weight-bold mb-1 text-black" style="background-color: rgb(236, 145, 34); display: inline-block; padding: 4px 8px; border-radius: 4px;">Felicitation Ceremony</h5>
+          <h6 class="subtitle text-muted">University of Ruhuna</h6>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
+        <div class="card-body p-4">
+          <img src="assets/imgs/award 6.jpg" alt="Award Ceremony 2024" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
+          <p class="mb-4 text-secondary small text-light">
+            🌟 Award Ceremony 2024 <br>
+            An award ceremony organized by the Faculty of Technology, University of Ruhuna, to honor 2024 University Colors Holders, Games Pool players, and Sports Captains. The event celebrated athletic excellence, leadership, and contributions to the university’s sports culture.
+          </p>
+          <h5 class="title font-weight-bold mb-1 text-black" style="background-color: rgb(236, 145, 34); display: inline-block; padding: 4px 8px; border-radius: 4px;">Felicitation Ceremony</h5>
+          <h6 class="subtitle text-muted">University of Ruhuna</h6>
+        </div>
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="testimonial-card border-0 mx-2" style="min-width: 320px;">
+        <div class="card-body p-4">
+          <img src="assets/imgs/award 8.jpg" alt="Inter Batch Meet 2024 Winners" class="rounded mx-auto d-block mb-4" style="max-height: 180px; object-fit: contain;">
+          <p class="mb-4 text-secondary small text-light">
+            🌟 Inter Batch Meet - 2024 <br>
+          </p>
+          <h5 class="title font-weight-bold mb-1 text-black" 
+              style="background-color: rgb(236, 145, 34); 
+                     display: inline-block; 
+                     padding: 4px 8px; 
+                     border-radius: 4px;">
+            Women’s Carrom Team - Winners
+          </h5>
+          <h6 class="subtitle text-muted">Faculty of Technology, University of Ruhuna</h6>
+        </div>
+      </div>
     </div>
-  
-    <style>
-      .carousel-item {
-        min-height: 420px; /* adjust height to fit content */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-  
-      .testimonial-card {
-        height: 100%;
-        max-width: 500px;
-      }
-  
-      .testimonial-card .card-body {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-    </style>
-  </section>
+
+  </div>
+
+  <style>
+    .carousel-item {
+      min-height: 420px; /* adjust height to fit content */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .testimonial-card {
+      height: 100%;
+      max-width: 500px;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .testimonial-card .card-body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Glowing effect for active card */
+    .active-glow {
+      box-shadow: 0 0 20px 8px rgba(236, 145, 34, 0.9);
+      border-radius: 10px;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+  </style>
   
   
   
@@ -962,11 +1047,13 @@
         </li>
   
         <li class="leadership-item" tabindex="0">
-          <h3 class="position-title">Vice Captain – Carrom Pool Squad</h3>
+          <h3 class="position-title">Vice Captain – University Carrom Team</h3>
           <p class="position-org"><strong>Organization:</strong> SLUG 2023 | UOR</p>
           <p class="position-year"><strong>Period:</strong> 2023 – 2024</p>
           <p class="position-desc">Guided the carrom team during SLUG 2023, held at University of Colombo.</p>
         </li>
+
+       
   
         <li class="leadership-item" tabindex="0">
           <h3 class="position-title">Organizing Committee – Youth Forum 2023</h3>
@@ -1006,92 +1093,93 @@
     </div>
   
     <style>
-      /* Container styling */
-      .leadership-section .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 0 1rem;
-        background-color: #121212; /* Dark background for container */
-        border-radius: 8px;
-        box-shadow: 0 0 15px rgba(0,0,0,0.7);
-      }
-      
-      /* Section title */
-      .leadership-section .section-title {
-        text-align: center;
-        margin-bottom: 1.5rem;
-        font-weight: 700;
-        font-size: 2rem;
-        color: #66ccff; /* light blue */
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        text-shadow: 0 0 5px #ffb433;
-      }
-      
-      /* Leadership list grid */
-      .leadership-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 1rem;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      
-      /* Leadership item box */
-      .leadership-item {
-        background-color: #1e1e1e; /* dark gray */
-        border-left: 5px solid #ffbe33; /* blue accent */
-        padding: 1rem 1.25rem;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.8);
-        cursor: default;
-        outline-offset: 4px;
-        transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
-        color: #ccc; /* light gray text */
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      }
-      
-      /* Hover and focus styles */
-      .leadership-item:hover,
-      .leadership-item:focus {
-        box-shadow: 0 0 12px 3px #ffbb33;
-        border-color: #66ccff;
-        outline: none;
-        background-color: #272727;
-        color: #e0f0ff;
-      }
-      
-      /* Position title */
-      .position-title {
-        color: #f9f9f9;
-        font-weight: 600;
-        margin-bottom: 0.3rem;
-        font-size: 1.2rem;
-      }
-      
-      /* Organization & Period paragraphs */
-      .position-org,
-      .position-year {
-        margin: 0.2rem 0;
-        font-size: 0.95rem;
-        color: #b0c4de; /* lighter steel blue */
-        font-weight: 500;
-      }
-      
-      /* Description text */
-      .position-desc {
-        margin: 0.3rem 0 0 0;
-        color: #a0aabf; /* muted lighter blue-gray */
-        font-size: 0.9rem;
-        line-height: 1.3;
-      }
-      
-      /* Responsive tweaks */
-      @media (max-width: 480px) {
-        .leadership-list {
-          grid-template-columns: 1fr;
-        }
-      }
+     /* Container styling */
+.leadership-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  background-color: #121212; /* Dark background for container */
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+/* Section title */
+.leadership-section .section-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 2rem;
+  color: #ff8c00; /* orange */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 0 0 8px #ff8c00;
+}
+
+/* Leadership list grid */
+.leadership-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Leadership item box */
+.leadership-item {
+  background-color: #1a1a1a; /* darker gray */
+  border-left: 5px solid #ff8c00; /* glowing orange accent */
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(255, 140, 0, 0.6);
+  cursor: default;
+  outline-offset: 4px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  color: #ccc; /* light gray text */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hover and focus styles */
+.leadership-item:hover,
+.leadership-item:focus {
+  box-shadow: 0 0 15px 5px #ff8c00;
+  border-color: #ffa500;
+  outline: none;
+  background-color: #2a2a2a;
+  color: #fff3e0;
+}
+
+/* Position title */
+.position-title {
+  color: #fff3e0;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+}
+
+/* Organization & Period paragraphs */
+.position-org,
+.position-year {
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+  color: #ffb347; /* lighter orange */
+  font-weight: 500;
+}
+
+/* Description text */
+.position-desc {
+  margin: 0.3rem 0 0 0;
+  color: #ffcc80; /* muted lighter orange */
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .leadership-list {
+    grid-template-columns: 1fr;
+  }
+}
+
     </style>
   </section>
   
@@ -1099,265 +1187,278 @@
 
 
     
+<!-- Blog Section -->
+<section id="blog" class="section">
+  <div class="container text-center">
+    <h6 class="section-title mb-4 text-white">Extracurricular Activities</h6>
+    <p class="mb-5 pb-4 text-muted" style="color:#ddd;">
+      "Beyond textbooks and lectures, extracurricular activities have shaped who I am—teaching me leadership, resilience, and the value of collaboration. Whether through sports, organizing events, or creative pursuits, each experience added depth to my journey as a student and individual." <br>
+    </p>
 
-    <!-- Blog Section -->
-    <section id="blog" class="section">
-        <div class="container text-center">
-            <h6 class="section-title mb-4">Extracurricular Activities</h6>
-            <p class="mb-5 pb-4">"Beyond textbooks and lectures, extracurricular activities have shaped who I am—teaching me leadership, resilience, and the value of collaboration. Whether through sports, organizing events, or creative pursuits, each experience added depth to my journey as a student and individual." <br> </p>
+    <div class="row text-left">
+      <div class="col-md-4">
+        <div class="card border mb-4 dark-card">
+          <img src="assets/imgs/volunteering 01.jpeg" alt="" class="card-img-top w-100">
+          <div class="card-body">
+            <h5 class="card-title">Introduction to Python – Knowledge Sharing Session</h5>
+            <div class="post-details">
+              <a href="https://www.linkedin.com/posts/deshanibandara_anusarani-abhimani-dinekshi-activity-7046893385428713472-ueUN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" style="color:#fff;">Posted By: Deshani Bandara</a>
+              <a class="social-item" href="https://www.linkedin.com/in/deshanibandara/"><i class="ti-linkedin" style="color:#fff;"></i></a>
+            </div>
+            <p>📍 Sujatha Balika Vidyalaya, Matara <br>
+              🎯 For A/L ICT Students<br>
+              👩‍🏫 Conducted with my amazing team – #Anusarani #Abhimani #Dinekshi<br>
+              A heartfelt thank you to AIESEC, Y4SL, and TECHZOID for making this moment possible. 💖
+              Nothing compares to the joy of teaching and inspiring future tech leaders! 🌟
+            </p>
+            <a href="https://www.linkedin.com/posts/deshanibandara_anusarani-abhimani-dinekshi-activity-7046893385428713472-ueUN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" style="color:#ffa726;">Read More..</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border mb-4 dark-card">
+          <img src="assets/imgs/volunteering 02.jpeg" alt="" class="card-img-top w-100">
+          <div class="card-body">
+            <h5 class="card-title">ICT Awareness Session – School Outreach</h5>
+            <div class="post-details">
+              <a href="https://www.linkedin.com/posts/deshanibandara_successfully-done-html-pascal-pseudo-activity-7060140068694339584-gUgf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" style="color:#fff;">Posted By: Deshani Bandara</a>
+              <a class="social-item" href="https://www.linkedin.com/posts/deshanibandara_successfully-done-html-pascal-pseudo-activity-7060140068694339584-gUgf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng"><i class="ti-linkedin" style="color:#fff;"></i></a>
+            </div>
+            <p>📍 R/Pathakada Buddhist Maha Vidyalaya<br>
+              🎯 For O/L ICT Students<br>
+              💡 Topics Covered: HTML, PASCAL, Pseudocode <br>
+              🤝 Conducted with the සබැඳි අපි Team
+            </p>
+            <a href="https://www.linkedin.com/posts/deshanibandara_successfully-done-html-pascal-pseudo-activity-7060140068694339584-gUgf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" style="color:#ffa726;">Read More..</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border mb-4 dark-card">
+          <video class="card-img-top w-100" controls>
+            <source src="assets/imgs/voulunteering 03.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="card-body">
+            <h5 class="card-title">Python for Beginners – School Workshop</h5>
+            <div class="post-details">
+              <a href="https://www.linkedin.com/posts/deshanibandara_python-programming-education-activity-7221164739383422978-NE0a?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" style="color:#fff;">Posted By: Deshani Bandara</a>
+              <a class="social-item" href="https://www.linkedin.com/posts/deshanibandara_python-programming-education-activity-7221164739383422978-NE0a?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng">
+                <i class="ti-linkedin" style="color:#fff;"></i>
+              </a>
+            </div>
+            <p>
+              📍 R/Gankanda Central College <br>
+              🎯 For A/L ICT Students<br>
+              💡 Topic: Introduction to Python Programming<br>
+              I'm grateful for the opportunity to inspire and empower the next generation of tech professionals. Here's to many more moments of learning and growth! 🚀🐍
+            </p>
+            <a href="https://www.linkedin.com/posts/deshanibandara_python-programming-education-activity-7221164739383422978-NE0a?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" style="color:#ffa726;">Read More..</a>
+          </div>
+        </div>
+      </div>
 
-            <div class="row text-left">
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <img src="assets/imgs/volunteering 01.jpeg" alt="" class="card-img-top w-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Introduction to Python – Knowledge Sharing Session</h5>
-                            <div class="post-details">
-                                <a href="https://www.linkedin.com/posts/deshanibandara_anusarani-abhimani-dinekshi-activity-7046893385428713472-ueUN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng">Posted By: Deshani Bandara</a>
-                                <a class="social-item" href="https://www.linkedin.com/in/deshanibandara/"><i class="ti-linkedin"></i></a>
-                            </div>
-                            <p>📍 Sujatha Balika Vidyalaya, Matara <br>
-                                🎯 For A/L ICT Students<br>
-                                👩‍🏫 Conducted with my amazing team – #Anusarani #Abhimani #Dinekshi<br>
-                                A heartfelt thank you to AIESEC, Y4SL, and TECHZOID for making this moment possible. 💖
-                                Nothing compares to the joy of teaching and inspiring future tech leaders! 🌟
-                                </p>
-                                
-                            <a href="https://www.linkedin.com/posts/deshanibandara_anusarani-abhimani-dinekshi-activity-7046893385428713472-ueUN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng">Read More..</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <img src="assets/imgs/volunteering 02.jpeg" alt="" class="card-img-top w-100">
-                        <div class="card-body">
-                            <h5 class="card-title">ICT Awareness Session – School Outreach</h5>
-                            <div class="post-details">
-                                <a href="https://www.linkedin.com/posts/deshanibandara_successfully-done-html-pascal-pseudo-activity-7060140068694339584-gUgf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng">Posted By: Deshani Bandara</a>
-                                <a class="social-item" href="https://www.linkedin.com/posts/deshanibandara_successfully-done-html-pascal-pseudo-activity-7060140068694339584-gUgf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng"><i class="ti-linkedin"></i></a>
-                           
-                            </div>
-                            <p>📍 R/Pathakada Buddhist Maha Vidyalaya<br>
-                                🎯 For O/L ICT Students<br>
-                                💡 Topics Covered: HTML, PASCAL, Pseudocode <br>
-                                🤝 Conducted with the සබැඳි අපි Team</p>
-                            <a href="https://www.linkedin.com/posts/deshanibandara_successfully-done-html-pascal-pseudo-activity-7060140068694339584-gUgf?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng">Read More..</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <video class="card-img-top w-100" controls>
-                            <source src="assets/imgs/voulunteering 03.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="card-body">
-                            <h5 class="card-title">Python for Beginners – School Workshop</h5>
-                            <div class="post-details">
-                                <a href="https://www.linkedin.com/posts/deshanibandara_python-programming-education-activity-7221164739383422978-NE0a?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng">Posted By: Deshani Bandara</a>
-                                <a class="social-item" href="https://www.linkedin.com/posts/deshanibandara_python-programming-education-activity-7221164739383422978-NE0a?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng">
-                                    <i class="ti-linkedin"></i>
-                                </a>
-                            </div>
-                            <p>
-                                📍 R/Gankanda Central College <br>
-                                🎯 For A/L ICT Students<br>
-                                💡 Topic: Introduction to Python Programming<br>
-                                I'm grateful for the opportunity to inspire and empower the next generation of tech professionals. Here's to many more moments of learning and growth! 🚀🐍
-                            </p>
-                            <a href="https://www.linkedin.com/posts/deshanibandara_python-programming-education-activity-7221164739383422978-NE0a?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng">Read More..</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <img src="assets/imgs/mentorship.jpg" alt="" class="card-img-top w-100">
-                        <div class="card-body">
-                            <h5 class="card-title">Mentorship Program - ICTSC</h5>
-                            <div class="post-details">
-                                <a href="">Posted By: Deshani Bandara</a>
-                                <a class="social-item" href=""><i class="ti-linkedin"></i></a>
-                           
-                            </div>
-                            <p>📍 Faculty of Technology, University of Ruhuna<br>
-                                🎯 For ICTSC of Dep. Of ICT<br>
-                                
-                                🤝 Conducted with the ICTSC<br>
-                            Empowering students through guidance and shared experiences, this mentorship program at the Faculty of Technology aimed to foster leadership and personal development among ICTSC members.</p>
-                            <a href="">Read More..</a>
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <img src="assets/imgs/voulunteering 4.jpg" alt="" class="card-img-top w-100">
-                        <div class="card-body">
-                            <h5 class="card-title">OC - Youth Forum 2023</h5>
-                            <div class="post-details">
-                                <a href="https://www.linkedin.com/posts/deshanibandara_youthforum2023-leadershipjourney-activity-7109218233605386240-IJKc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng">Posted By: Deshani Bandara</a>
-                                <a class="social-item" href="https://www.linkedin.com/posts/deshanibandara_youthforum2023-leadershipjourney-activity-7109218233605386240-IJKc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng"><i class="ti-linkedin"></i></a>
-                           
-                            </div>
-                            <p>📍 Faculty of Technology, University of Ruhuna<br>
-                                🎯 For ICTSC of Dep. Of ICT<br>
-                                
-                                🤝 Conducted with Career Guidance Unit ,Office for National Unity and Reconciliation (ONUR).<br>
-                                a two-day leadership training program .This impactful forum brought together passionate youth to cultivate leadership, teamwork, and reconciliation skills—shaping the leaders of tomorrow through knowledge sharing and experiential learning.</p>
-                            <a href="https://www.linkedin.com/posts/deshanibandara_youthforum2023-leadershipjourney-activity-7109218233605386240-IJKc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng">Read More..</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <img src="assets/imgs/cod.jpg" alt="" class="card-img-top w-100">
-                        <div class="card-body">
-                            <h5 class="card-title">COD FOT 2022</h5>
-                            <div class="post-details">
-                                <a href="https://www.linkedin.com/posts/deshanibandara_ictstudent-codfotchampionship2022-ictscgaming-activity-7095464993868967937-qUKI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng">Posted By: Deshani Bandara</a>
-                                <a class="social-item" href="https://www.linkedin.com/posts/deshanibandara_ictstudent-codfotchampionship2022-ictscgaming-activity-7095464993868967937-qUKI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng"><i class="ti-linkedin"></i></a>
-                           
-                            </div>
-                            <p>📍 Faculty of Technology, University of Ruhuna<br>
-                                
-                                🤝 Conducted with ICTSC<br>
-                                The CODFOT Championship 2022, organized by the ICT Student Circle (ICTSC), was a two-day competitive gaming event at the Faculty of Technology, University of Ruhuna.
-It brought together students to showcase skills in e-sports, foster teamwork, and explore game development insights.</p>
-                            <a href="https://www.linkedin.com/posts/deshanibandara_ictstudent-codfotchampionship2022-ictscgaming-activity-7095464993868967937-qUKI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng">Read More..</a>
-                        </div>
-                    </div>
-                </div>
+      <div class="col-md-4">
+        <div class="card border mb-4 dark-card">
+          <img src="assets/imgs/voulunteering 4.jpg" alt="" class="card-img-top w-100">
+          <div class="card-body">
+            <h5 class="card-title">OC - Youth Forum 2023</h5>
+            <div class="post-details">
+              <a href="https://www.linkedin.com/posts/deshanibandara_youthforum2023-leadershipjourney-activity-7109218233605386240-IJKc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" style="color:#fff;">Posted By: Deshani Bandara</a>
+              <a class="social-item" href="https://www.linkedin.com/posts/deshanibandara_youthforum2023-leadershipjourney-activity-7109218233605386240-IJKc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng"><i class="ti-linkedin" style="color:#fff;"></i></a>
+            </div>
+            <p>
+              📍 Faculty of Technology, University of Ruhuna<br>
+              🎯 For ICTSC of Dep. Of ICT<br>
+              🤝 Conducted with Career Guidance Unit, Office for National Unity and Reconciliation (ONUR).<br>
+              A two-day leadership training program. This impactful forum brought together passionate youth to cultivate leadership, teamwork, and reconciliation skills—shaping the leaders of tomorrow through knowledge sharing and experiential learning.
+            </p>
+            <a href="https://www.linkedin.com/posts/deshanibandara_youthforum2023-leadershipjourney-activity-7109218233605386240-IJKc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" style="color:#ffa726;">Read More..</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card border mb-4 dark-card">
+          <img src="assets/imgs/cod.jpg" alt="" class="card-img-top w-100">
+          <div class="card-body">
+            <h5 class="card-title">COD FOT 2022</h5>
+            <div class="post-details">
+              <a href="https://www.linkedin.com/posts/deshanibandara_ictstudent-codfotchampionship2022-ictscgaming-activity-7095464993868967937-qUKI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" style="color:#fff;">Posted By: Deshani Bandara</a>
+              <a class="social-item" href="https://www.linkedin.com/posts/deshanibandara_ictstudent-codfotchampionship2022-ictscgaming-activity-7095464993868967937-qUKI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng"><i class="ti-linkedin" style="color:#fff;"></i></a>
+            </div>
+            <p>
+              📍 Faculty of Technology, University of Ruhuna<br>
+              🤝 Conducted with ICTSC<br>
+              The CODFOT Championship 2022, organized by the ICT Student Circle (ICTSC), was a two-day competitive gaming event at the Faculty of Technology, University of Ruhuna. It brought together students to showcase skills in e-sports, foster teamwork, and explore game development insights.
+            </p>
+            <a href="https://www.linkedin.com/posts/deshanibandara_ictstudent-codfotchampionship2022-ictscgaming-activity-7095464993868967937-qUKI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0GZ58BUvlAl2_iD7yFUyi1gkWqXD895Ng" style="color:#ffa726;">Read More..</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card border mb-4 dark-card">
+          <img src="assets/imgs/mentorship.jpg" alt="" class="card-img-top w-100">
+          <div class="card-body">
+            <h5 class="card-title">Mentorship Program - ICTSC</h5>
+            <div class="post-details">
+              <a href="#" style="color:#fff;">Posted By: Deshani Bandara</a>
+              <a class="social-item" href="#"><i class="ti-linkedin" style="color:#fff;"></i></a>
+            </div>
+            <p>
+              📍 Faculty of Technology, University of Ruhuna<br>
+              🎯 For ICTSC of Dep. Of ICT<br>
+              🤝 Conducted with the ICTSC<br>
+              Empowering students through guidance and shared experiences, this mentorship program at the Faculty of Technology aimed to foster leadership and personal development among ICTSC members.
+            </p>
+            <a href="#" style="color:#ffa726;">Read More..</a>
+          </div>
+        </div>
+      </div>
+      
 
             </div>
         </div>
         <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-<script>
-  var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 'auto', // Adjust to auto for dynamic card size
-    spaceBetween: 20,       // Space between slides
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1, // 1 card per slide on small screens
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto', // Adjust to auto for dynamic card size
+      spaceBetween: 20,       // Space between slides
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
       },
-      768: {
-        slidesPerView: 3, // 3 cards per slide on larger screens
-      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1, // 1 card per slide on small screens
+        },
+        768: {
+          slidesPerView: 3, // 3 cards per slide on larger screens
+        },
+      }
+    });
+  </script>
+
+  <style>
+    /* Dark card styling */
+    .dark-card {
+      background-color: #1f1f1f !important;
+      color: #fff !important;
+      border: 1px solid #444 !important;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-  });
-</script>
 
-    </section>
+    .dark-card .card-title,
+    .dark-card p,
+    .dark-card a,
+    .dark-card .post-details a,
+    .dark-card strong,
+    .dark-card i {
+      color: #fff !important;
+    }
+
+    .dark-card a:hover {
+      color: #ffa726 !important;
+      text-decoration: underline;
+    }
+
+    .dark-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 15px 3px #ffa726;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .post-details a.social-item {
+      margin-left: 8px;
+      font-size: 1.2rem;
+    }
+
+    .post-details {
+      margin-bottom: 10px;
+    }
+  </style>
+</section>
 
 
+<!-- Contact Section -->
+<section id="contact" class="section py-4" style="background: #121212; color: #f0a500;">
+  <div class="container text-center">
+      <h6 class="subtitle mb-2" style="color: #f0a500;">Contact</h6>
+      <h2 class="section-title mb-3" style="color: #fff;">Get In Touch With Me</h2>
 
-
-  <!-- Contact Section -->
-<section id="contact" class="section py-4" style="background: #fff; color: #6c1f1f;">
-    <div class="container text-center">
-        <h6 class="subtitle mb-2" style="color: #ff6600;">Contact</h6>
-        <h2 class="section-title mb-3">Get In Touch With Me</h2>
-
-        <div class="contact-infos d-flex flex-wrap justify-content-center">
-            <div class="item m-3 text-center">
-                <i class="ti-location-pin" style="font-size: 2rem; color: #ff6600;"></i>
-                <h5 class="mt-2 mb-1">Location</h5>
-                <p class="mb-0">Ratnapura, Sri Lanka</p>
-            </div>
-            <div class="item m-3 text-center">
-                <i class="ti-mobile" style="font-size: 2rem; color: #ff6600;"></i>
-                <h5 class="mt-2 mb-1">Phone Number</h5>
-                <p class="mb-0">(+94) 71 57 35 339</p>
-            </div>
-            <div class="item m-3 text-center">
-                <i class="ti-email" style="font-size: 2rem; color: #ff6600;"></i>
-                <h5 class="mt-2 mb-1">Email Address</h5>
-                <p class="mb-0">deshanibandarawas@gmail.com</p>
-            </div>
-        </div>
-    </div>
+      <div class="contact-infos d-flex flex-wrap justify-content-center">
+          <div class="item m-3 text-center">
+              <i class="ti-location-pin" style="font-size: 2rem; color: #f0a500;"></i>
+              <h5 class="mt-2 mb-1" style="color: #fff;">Location</h5>
+              <p class="mb-0" style="color: #bbb;">Ratnapura, Sri Lanka</p>
+          </div>
+          <div class="item m-3 text-center">
+              <i class="ti-mobile" style="font-size: 2rem; color: #f0a500;"></i>
+              <h5 class="mt-2 mb-1" style="color: #fff;">Phone Number</h5>
+              <p class="mb-0" style="color: #bbb;">(+94) 71 57 35 339</p>
+          </div>
+          <div class="item m-3 text-center">
+              <i class="ti-email" style="font-size: 2rem; color: #f0a500;"></i>
+              <h5 class="mt-2 mb-1" style="color: #fff;">Email Address</h5>
+              <p class="mb-0" style="color: #bbb;">deshanibandarawas@gmail.com</p>
+          </div>
+      </div>
+  </div>
 </section>
 <!-- End of Contact Section -->
 
-   <!-- Hire Me Section -->
-   <section class="section py-5" style="background: linear-gradient(135deg, #0303fc 0%, #fc5725 100%);">
-    <div class="container">
-        <div class="card bg-transparent border-0">
-            <div class="card-body text-light text-center">
-                <h2 class="mb-3 animate__animated animate__fadeInDown">🚀 Hire Me For Your Project</h2>
-                <p class="mb-4 animate__animated animate__fadeInUp">
-                    Let’s bring your ideas to life! I’m available for freelance, contract, or project-based work. 
-                </p>
-                <a href="#contact" class="btn btn-light btn-lg rounded-pill shadow animate__animated animate__fadeInUp">Let's Talk 💼</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End of Hire Me Section -->
-
-
-
-    <!-- Page Footer -->
-<footer class="page-footer py-4" style="background-color: #fff; border-top: 2px solid #ff6600;">
-    <div class="container text-center">
-        <div class="row align-items-center">
-            <div class="col-12">
-                <div class="socials d-flex justify-content-center flex-wrap">
-                    <a class="social-item mx-3" href="https://www.linkedin.com/in/deshanibandara/" target="_blank" style="font-size: 1.5rem; color: #333; transition: color 0.3s;">
-                        <i class="ti-linkedin"></i>
-                    </a>
-                    <a class="social-item mx-3" href="https://github.com/BANDARAKDT" target="_blank" style="font-size: 1.5rem; color: #333; transition: color 0.3s;">
-                        <i class="ti-github"></i>
-                    </a>
-                    <a class="social-item mx-3" href="https://www.facebook.com/share/1WGVBkZ5JF/?mibextid=wwXIfr" target="_blank" style="font-size: 1.5rem; color: #333; transition: color 0.3s;">
-                        <i class="ti-facebook"></i>
-                    </a>
-                    <a class="social-item mx-3" href="https://www.youtube.com/@ictwithdeshu" target="_blank" style="font-size: 1.5rem; color: #333; transition: color 0.3s;">
-                        <i class="ti-youtube"></i>
-                    </a>
+<!-- Hire Me Section -->
+<section class="section py-5" style="background: linear-gradient(135deg, #121212, #b33e00 100%);">
+  <div class="container">
+      <div class="card bg-transparent border-0">
+          <div class="card-body text-light text-center">
+              <h2 class="mb-3 animate__animated animate__fadeInDown" style="color: #f0a500;">🚀 Hire Me For Your Project</h2>
+              <p class="mb-4 animate__animated animate__fadeInUp" style="color: #ddd;">
+                  Let’s bring your ideas to life! I’m available for freelance, contract, or project-based work.
+              </p>
+              
+                <div class="col-12">
+                  <div class="socials d-flex justify-content-center flex-wrap">
+                      <a class="social-item mx-3" href="https://www.linkedin.com/in/deshanibandara/" target="_blank" style="font-size: 1.5rem; color: #bbb; transition: color 0.3s;">
+                          <i class="ti-linkedin"></i>
+                      </a>
+                      <a class="social-item mx-3" href="https://github.com/BANDARAKDT" target="_blank" style="font-size: 1.5rem; color: #bbb; transition: color 0.3s;">
+                          <i class="ti-github"></i>
+                      </a>
+                      <a class="social-item mx-3" href="https://www.facebook.com/share/1WGVBkZ5JF/?mibextid=wwXIfr" target="_blank" style="font-size: 1.5rem; color: #bbb; transition: color 0.3s;">
+                          <i class="ti-facebook"></i>
+                      </a>
+                      <a class="social-item mx-3" href="https://www.youtube.com/@ictwithdeshu" target="_blank" style="font-size: 1.5rem; color: #bbb; transition: color 0.3s;">
+                          <i class="ti-youtube"></i>
+                      </a>
+                  </div>
+                  <div class="col-12 mt-3">
+                    <p class="mb-0" style="font-size: 0.9rem; color: #888;">
+                        &copy; <script>document.write(new Date().getFullYear())</script> All rights reserved by <strong style="color: #f0a500;">Deshani Bandara</strong>
+                    </p>
                 </div>
-            </div>
-            <div class="col-12 mt-3">
-                <p class="mb-0" style="font-size: 0.9rem; color: #666;">
-                    &copy; <script>document.write(new Date().getFullYear())</script> All rights reserved by <strong style="color: #ff6600;">Deshani Bandara</strong>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- End of Page Footer -->
+              </div>
+              </a>
+          </div>
+      </div>
+  </div>
+</section>
+
 
 <!-- Custom CSS -->
 <style>
-    .social-item:hover {
-        color: #ff6600 !important;
-        transform: translateY(-3px);
-    }
+  .social-item:hover {
+      color: #f0a500 !important;
+      transform: translateY(-3px);
+  }
 </style>
-
-	
-	<!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
-    <!-- bootstrap 3 affix -->
-	<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
-
-    <!-- steller js -->
-    <script src="assets/js/steller.js"></script>
-
 
 
     
